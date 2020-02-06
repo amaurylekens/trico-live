@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AppCm</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      .page-holder {
+  min-height: 100vh;
+}
+
+.bg-cover {
+  background-size: cover !important;
+}
+
+body {
+  font-family: dealerplate;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+.center span{
+  align-self: center;
+}
+
+.score, .team_name{
+  color: #ffffff;
+}
+
+/* Very small devices (300px and up) */
+@media (min-width: 300px) {
+  .team_name {font-size:40px;}
+  .score {font-size:50px;}
+  .logo {height: 60px; width:auto;} 
+}
+ 
+/* Small devices (phone, 544px and up) */
+@media (min-width: 544px) { 
+  .team_name {font-size:48px;} 
+  .score {font-size:60px;} 
+  .logo {height: 70px; width:auto;} 
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .team_name {font-size:72px;}  
+  .score {font-size:90px;}
+  .logo {height: 100px; width:auto;} 
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .team_name {font-size:104px;} 
+  .score {font-size:130px;} 
+  .logo {height: 150px; width:auto;} 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg) {
+  .team_name {font-size:115px;}  
+  .score {font-size:160rem;}  
+  .logo {height: 180px; width:auto;}    
+}
+
+  </style>
+</head>
+<body>
+<div style="background: url(assets/bg.png)" class="page-holder bg-cover">
+  <app-root></app-root>
+</div>
+</body>
+</html>

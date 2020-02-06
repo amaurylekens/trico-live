@@ -1,0 +1,32 @@
+<div class="container" >
+	<div class="row justify-content-center">
+		<div class="col-xs-12 team_name">
+	            {{ name_home }}
+				-
+				{{ name_away }}
+		</div>
+    </div>
+</div>
+
+
+<div class="container-fluid" style="text-align:center;">
+    <div class="row justify-content-center">
+        <div class="col-xs-4">
+            <img [src]="logo_home" class="logo">
+        </div>
+
+        <div class="col-xs-4 mx-5">
+            <div class="score">
+              {{ score_home }} - {{ score_away }}
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <img [src]="logo_away" class="logo">
+        </div>
+
+        <div class="clearfix"></div>
+
+  </div>
+</div>
+
