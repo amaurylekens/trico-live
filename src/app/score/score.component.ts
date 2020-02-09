@@ -11,10 +11,10 @@ export class ScoreComponent implements OnInit {
   score_home: string = "1";
   score_away: string = "0";
 
-  name_home: string = "AC AZU.";
+  name_home: string = "SC FOR.";
   name_away: string = "FC TRI."
 
-  logo_home: string = "assets/images/azur.png";
+  logo_home: string = "assets/images/scforest.png";
   logo_away: string = "assets/images/tricoteuses.png";
 
   dataRefresher: any;
