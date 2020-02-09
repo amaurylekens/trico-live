@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http'
 import 'rxjs/add/observable/interval';
 
 @Component({
@@ -9,20 +10,41 @@ import 'rxjs/add/observable/interval';
 })
 export class ChronoComponent implements OnInit {
 
-  times: number;
+  time: number;
   minutes: number;
   seconds: number;
+
+  dataRefresher: any;
  
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
  
   ngOnInit() {
-    const counter = Observable.interval(1000);
-      counter.subscribe(
-      (value) => {
-        this.times = value;
-        this.minutes = Math.round(this.times/60);
-        this.seconds = this.times%60;
-      })
+    this.getData();
+    this.refreshData()
+
+  }
+
+  getData(){
+    this.httpClient
+      .get<any[]>('https://trico-live-server.herokuapp.com/api/v1.0/chrono')
+      .subscribe(
+        (response) => {
+          this.time = response['time'];
+          this.minutes = Math.floor(this.time/60);
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+
+  }
+
+  refreshData(){
+    this.dataRefresher =
+      setInterval(() => {
+        this.getData();
+        //Passing the false flag would prevent page reset to 1 and hinder user interaction
+      }, 10000);  
   }
 
 }
