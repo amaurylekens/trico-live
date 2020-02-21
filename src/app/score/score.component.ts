@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Match } from '../../classes/match';
 
 @Component({
   selector: 'app-score',
@@ -8,45 +10,14 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ScoreComponent implements OnInit {
 
-  score_home: string = "1";
-  score_away: string = "0";
+  @Input() match: Match = new Match('', {'home': 0, 'away':0}, {'home': "", 'away': ""},
+                                   {'home': "", 'away': ""}, '', '', false);
 
-  name_home: string = "SC FOR.";
-  name_away: string = "FC TRI."
-
-  logo_home: string = "assets/images/scforest.png";
-  logo_away: string = "assets/images/tricoteuses.png";
-
-  dataRefresher: any;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.getData();
-    this.refreshData();
-  }
 
-  getData(){
-    this.httpClient
-      .get<any[]>('https://trico-live-server.herokuapp.com/api/v1.0/score')
-      .subscribe(
-        (response) => {
-          this.score_home = response['score_home'];
-          this.score_away = response['score_away'];
-        },
-        (error) => {
-          console.log('Erreur ! : ' + error);
-        }
-      );
-
-  }
-
-  refreshData(){
-    this.dataRefresher =
-      setInterval(() => {
-        this.getData();
-        //Passing the false flag would prevent page reset to 1 and hinder user interaction
-      }, 5000);  
   }
 
 }

@@ -1,3 +1,16 @@
-<div style="text-align:center; font-size: 35px; color: #ffffff;">
-  {{ minutes }}'
+<div style="text-align:center; font-size: 35px; color: #ffffff;" [hidden]="match.state !== '1H' && match.state !== '2H'">
+  {{ match.getChrono()['minutes'] }}'
 </div>
+
+<div style="text-align:center; font-size: 35px; color: #ffffff;" [hidden]="match.state !== 'to_play'">
+  22 Février 15H30
+</div>
+
+<div style="text-align:center; font-size: 35px; color: #ffffff;" [hidden]="match.state !== 'HT'">
+  HALF TIME
+</div>
+
+<div style="text-align:center; font-size: 35px; color: #ffffff;" [hidden]="match.state !== 'played'">
+  FINISHED
+</div>
+
