@@ -22,7 +22,6 @@ export class ApiAccess {
     return this.httpClient.get(this.url + 'match/' + match_id).pipe(
       map(
         (data: any[]) => {
-          console.log(data);
           data = data['match']
           let match: Match = Match.fromJson(data)
           
