@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   getData(){
-    this.apiAccess.getMatch('96f9eb34-5563-11ea-b53f-2cf0ee2d2352').subscribe((match) => {
+    this.apiAccess.getMatch('9437bd38-5aed-11ea-8048-56fe82be49d5').subscribe((match) => {
       this.match = match;
       console.log(match)
     });
